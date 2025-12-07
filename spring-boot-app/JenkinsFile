@@ -35,6 +35,13 @@ pipeline {
         }
       }
     }
+
+    stage('deployment-project-checkout') {
+          steps {
+            git branch: 'main', url: 'https://github.com/maroof49/My-project-deployment.git'
+            echo " deployment cloned successfully"
+          }
+        }
     stage('Update Deployment File') {
         environment {
             GIT_REPO_NAME = "My-project-deployment"
